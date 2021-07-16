@@ -14,6 +14,35 @@
         var config = JSON.parse(decodeURI(window.location.href.split('?')[1].split('&')[0].split('=')[1]));
         console.log(config, 'config');
         var ctx = document.getElementById("myChart").getContext('2d');
+        config.options['plugins']= {
+            datalabels: {
+                 color: '#fff',
+                anchor:'end',
+                align:'start',
+                offset:-10,
+                borderWidth:2,
+                borderColor: '#000000',
+                borderRadius:25,
+                backgroundColor: ['#FF6633', '#FFB399', '#FF33FF', '#a899ff', '#00B3E6',
+                    '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+                    '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+                    '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+                    '#66994D'],
+                font:{
+                    weight:'bold',
+                    size:'10'
+                },
+                formatter: (value, ctx) => {
+                    let sum = ctx.dataset._meta[0].total;
+                    let percentage = (value * 100 / sum).toFixed(2) + " %";
+                    //return value +"%";
+                    console.log("percentage", percentage)
+                    return percentage;
+                }
+                
+            }
+        }
+        console.log(config);
         var myChart = new Chart(ctx,
             config
         );
