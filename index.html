@@ -4,11 +4,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 </head>
 
 <body>
-    <div height="450" width="320">
-        <canvas id="myChart" style="height:600"></canvas>
+    <div class="chart-container" style="position: relative; height:91vh; width:96vw">
+        <canvas id="myChart"></canvas>
     </div>
     <script>
         var config = JSON.parse(decodeURI(window.location.href.split('?')[1].split('&')[0].split('=')[1]));
